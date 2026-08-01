@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "CMake Build & Run",
+            "command": "Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue; cmake -B build; cmake --build build; .\\build\\Debug\\main.exe",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
