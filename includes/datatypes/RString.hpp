@@ -12,15 +12,15 @@ class RString {
 
                 ~RString    ();
 
-const char*     GetPointer  ();
-size_t          GetLength   ();
+const char*     GetPointer  ()  const;
+size_t          GetLength   ()  const;
 
 void            SetString   (const char* pSrc);
-void            SetString   (RString* pSrc);
+void            SetString   (const RString* pSrc);
 
 char            operator[]  (size_t pIdx);
-RString&        operator=   (RString& pRHS);
-RString         operator+   (RString& pRhs);
+RString&        operator=   (const RString& pRHS);
+RString         operator+   (const RString& pRhs);
 
     private:
 

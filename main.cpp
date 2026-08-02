@@ -8,7 +8,6 @@ main ()
     RString ss ("Shrivastava");
     RString res;
 
-
     res = s + ss;
 
     std::cout << s.GetPointer() << std::endl;

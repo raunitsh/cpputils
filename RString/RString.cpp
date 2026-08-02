@@ -25,7 +25,7 @@ RString::~RString ()
     vStr = nullptr;
 }
 
-const char* RString::GetPointer ()
+const char* RString::GetPointer () const
 {
     return (const char*)vStr;
 }
@@ -44,7 +44,7 @@ RString::SetString (const char* pSrc)
 }
 
 void
-RString::SetString (RString* pSrc)
+RString::SetString (const RString* pSrc)
 {
     if (vStr)
         free (vStr);
@@ -55,7 +55,7 @@ RString::SetString (RString* pSrc)
 }
 
 size_t
-RString::GetLength ()
+RString::GetLength () const
 {
     return vLength;
 }
@@ -67,14 +67,14 @@ RString::operator[] (size_t pIdx)
 }
 
 RString&
-RString::operator= (RString& pRHS)
+RString::operator= (const RString& pRHS)
 {
     SetString (&pRHS);
     return *this;
 }
 
 RString
-RString::operator+ (RString& pRhs)
+RString::operator+ (const RString& pRhs)
 {
     return RString (RStringUtils::StrConcat (vStr, pRhs.GetPointer()));
 }
