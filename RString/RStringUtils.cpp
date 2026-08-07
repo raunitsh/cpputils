@@ -1,8 +1,5 @@
 #include "../includes/utils/RStringUtils.hpp"
 
-// TODO: replace w RMemoryManager
-#include <stdlib.h>
-
 void RStringUtils::CopyStr(const char *pSrc, char *pDest) {
   while (*pSrc != '\0') {
     *pDest = *pSrc;
@@ -27,7 +24,7 @@ const char *RStringUtils::StrConcat(const char *pLhs, const char *pRhs) {
   size_t len1 = StrLen(pLhs);
   size_t len2 = StrLen(pRhs);
 
-  char *start = (char *)malloc(len1 + len2 + 1);
+  char *start = new char [len1 + len2 + 1];
 
   CopyStr(pLhs, start);
   CopyStr(pRhs, start + len1);

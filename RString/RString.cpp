@@ -1,9 +1,6 @@
 #include "../includes/datatypes/RString.hpp"
 #include "../includes/utils/RStringUtils.hpp"
 
-// TODO: Replace with RMemoryManager
-#include<stdlib.h>
-
 RString::RString ()
 {
     vStr = nullptr;
@@ -13,7 +10,7 @@ RString::RString ()
 RString::RString (const char* pSrc)
 {
     size_t len = RStringUtils::StrLen (pSrc);
-    vStr = (char*) malloc (len+1);
+    vStr = new char[len+1];
 
     RStringUtils::CopyStr (pSrc, vStr);
     vLength = len;
@@ -21,7 +18,7 @@ RString::RString (const char* pSrc)
 
 RString::~RString ()
 {
-    free (vStr);
+    delete vStr;
     vStr = nullptr;
 }
 
@@ -34,11 +31,11 @@ void
 RString::SetString (const char* pSrc)
 {
     if (vStr)
-        free (vStr);
+        delete vStr;
 
     size_t len = RStringUtils::StrLen (pSrc);
 
-    vStr = (char*) malloc (len + 1);
+    vStr = new char [len + 1];
     RStringUtils::CopyStr (pSrc, vStr);
     vLength = len;
 }
@@ -47,9 +44,9 @@ void
 RString::SetString (const RString* pSrc)
 {
     if (vStr)
-        free (vStr);
+        delete vStr;
 
-    vStr = (char*) malloc (pSrc->GetLength() + 1);
+    vStr = new char [pSrc->GetLength() + 1];
     const char* src = pSrc->GetPointer();
     RStringUtils::CopyStr (src, vStr);
 }
