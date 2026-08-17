@@ -1,6 +1,8 @@
 #include "../includes/utils/RStringUtils.hpp"
 
-void RStringUtils::CopyStr(const char *pSrc, char *pDest) {
+void 
+RStringUtils::CopyStr (const char *pSrc, char *pDest) 
+{
   while (*pSrc != '\0') {
     *pDest = *pSrc;
     pSrc++;
@@ -10,7 +12,9 @@ void RStringUtils::CopyStr(const char *pSrc, char *pDest) {
   *pDest = '\0';
 }
 
-size_t RStringUtils::StrLen(const char *pStr) {
+size_t 
+RStringUtils::StrLen (const char *pStr) 
+{
   const char *cursor = pStr;
 
   while (*cursor != '\0') {
@@ -20,7 +24,9 @@ size_t RStringUtils::StrLen(const char *pStr) {
   return cursor - pStr;
 }
 
-const char *RStringUtils::StrConcat(const char *pLhs, const char *pRhs) {
+const char *
+RStringUtils::StrConcat (const char *pLhs, const char *pRhs) 
+{
   size_t len1 = StrLen(pLhs);
   size_t len2 = StrLen(pRhs);
 
