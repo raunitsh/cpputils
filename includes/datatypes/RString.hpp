@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 /**
  *  RString - variable length string
  */
